@@ -18,3 +18,90 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow for better visual */
     border-radius: 8px;
 }
+
+.book-card {
+    display: flex; /* Enable Flexbox for book-card */
+    flex-direction: column; /* Arrange items vertically */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center; /* Center text horizontally within the card */
+    transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+.book-card img {
+    width: 100%;
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+    aspect-ratio: 2 / 3; /* Standard book cover aspect ratio (width / height) - adjust as needed */
+    border-bottom: 1px solid #ddd;
+
+}
+
+.book-card-content { /* New container for text content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space to push the button to the bottom */
+    flex-grow: 1;
+    padding-top: 10px; /* Add spacing between image and text */
+
+}
+
+.book-card .book-title {
+    font-size: 18px; /* Slightly larger for emphasis */
+    font-weight: bold;
+    margin-top: 10px; /* Add spacing above the title */
+    margin-bottom: 5px; /* Add spacing below the title */
+    color: #333; /* Ensure title color is readable */
+
+}
+
+.book-card .book-author {
+    font-size: 16px;
+    color: #bb0c58;
+    margin-top: 5px; /* Add spacing above the author name */
+    margin-bottom: 5px;
+
+}
+
+.book-card .book-info {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.book-card .book-date {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.view-button {
+
+    background-color: #007bff; /* Example button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px; /* Add some space above the button */
+    transition: background-color 0.3s ease;
+    align-self: center; /* Center the button horizontally within the content */
+
+}
+
+.view-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
