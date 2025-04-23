@@ -1,3 +1,33 @@
+/* Root variables for reusable styles */
+
+:root {
+    --font-primary: Arial, sans-serif;
+    --font-size-base: 14px;
+    --color-text-primary: #333;
+    --color-text-secondary: #777;
+    --color-text-accent: #bb0c58;
+    --color-text-date: #999;
+    --color-bg-primary: #f4f4f4;
+    --color-bg-secondary: #fff;
+    --color-border-primary: #ddd;
+    --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --transition-default: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
+    --spacing-small: 5px;
+    --spacing-medium: 10px;
+    --spacing-large: 15px;
+    --button-primary-bg: #007bff;
+    --button-primary-text: white;
+    --button-primary-hover-bg: #0056b3;
+    --toggle-width: 45px;
+    --toggle-height: 26px;
+    --toggle-knob-size: 20px;
+ 
+ }
+
+
 body {
     margin: 0;
     padding: 0;
