@@ -28,110 +28,598 @@
  }
 
 
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
+/* Dark mode variables */
 
-.book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.dark-mode {
+
+    --color-text-primary: #eee;
+ 
+    --color-text-secondary: #ccc;
+ 
+    --color-text-accent: #fdd835;
+ 
+    --color-text-date: #bbb;
+ 
+    --color-bg-primary: #333;
+ 
+    --color-bg-secondary: #444;
+ 
+    --color-border-primary: #555;
+ 
+    --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.3);
+ 
+    --box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.3);
+ 
+    --button-primary-bg: #1e88e5;
+ 
+    --button-primary-hover-bg: #1565c0;
+ 
+ }
+ 
+  
+ 
+ /* Base body styles */
+ 
+ body {
+ 
+    margin: 0 auto; /* Center the entire body content */
+ 
     padding: 20px;
-    max-height: 1200px;
-    margin: 0 auto;
-    background-color: #f4f4f4;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow for better visual */
-    border-radius: 8px;
-}
-
-.book-card {
-    display: flex; /* Enable Flexbox for book-card */
-    flex-direction: column; /* Arrange items vertically */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center; /* Center text horizontally within the card */
-    transition: transform 0.2s, box-shadow 0.2s;
-
-}
-
-.book-card img {
-    width: 100%;
-    height: auto; /* Adjust height automatically to maintain aspect ratio */
-    object-fit: cover; /* Ensure the image covers the container without distortion */
-    aspect-ratio: 2 / 3; /* Standard book cover aspect ratio (width / height) - adjust as needed */
-    border-bottom: 1px solid #ddd;
-
-}
-
-.book-card-content { /* New container for text content */
+ 
+    font-size: var(--font-size-base);
+ 
+    font-family: var(--font-primary);
+ 
+    background-color: var(--color-bg-primary);
+ 
+    color: var(--color-text-primary);
+ 
+    transition: background-color 0.3s ease, color 0.3s ease;
+ 
     display: flex;
+ 
     flex-direction: column;
-    justify-content: space-between; /* Distribute space to push the button to the bottom */
-    flex-grow: 1;
-    padding-top: 10px; /* Add spacing between image and text */
-
-}
-
-.book-card .book-title {
-    font-size: 18px; /* Slightly larger for emphasis */
-    font-weight: bold;
-    margin-top: 10px; /* Add spacing above the title */
-    margin-bottom: 5px; /* Add spacing below the title */
-    color: #333; /* Ensure title color is readable */
-
-}
-
-.book-card .book-author {
-    font-size: 16px;
-    color: #bb0c58;
-    margin-top: 5px; /* Add spacing above the author name */
-    margin-bottom: 5px;
-
-}
-
-.book-card .book-info {
-    font-size: 14px;
-    color: #777;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-}
-
-.book-card .book-date {
-    font-size: 12px;
-    color: #999;
-    margin-top: 5px;
-}
-
-.view-button {
-
-    background-color: #007bff; /* Example button color */
+ 
+    min-height: 100vh;
+ 
+    align-items: center; /* Keep items centered vertically */
+ 
+    box-sizing: border-box; /* Includes padding in width calculations */
+ 
+ }
+ 
+  
+ 
+ /* Header styles */
+ 
+ header {
+ 
+    display: flex;
+ 
+    align-items: center; /* Vertically align items in the header */
+ 
+    background-color: black;
+ 
     color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    font-size: 14px;
+ 
+    width: 100%; /* Ensure it spans the full parent container */
+ 
+    max-width: 1200px; /* Matches the book grid */
+ 
+    padding: 8px var(--spacing-large); /* Consistent padding */
+ 
+    margin-bottom: 0; /* Ensure no margin below the header */
+ 
+    border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
+ 
+    justify-content: space-between; /* Distribute items within the header */
+ 
+    box-sizing: border-box; /* Includes padding in width calculation */
+ 
+ }
+ 
+  
+ 
+ .book-connect-logo {
+ 
+    max-height: 60px;
+ 
+    margin-right: var(--spacing-large);
+ 
+ }
+ 
+  
+ 
+ .book-connect-title {
+ 
+    font-size: 2rem;
+ 
+    font-weight: bold;
+ 
+    color: white;
+ 
+    margin-right: auto;
+ 
+ }
+ 
+  
+ 
+ .search-input {
+ 
+    padding: 8px var(--spacing-medium);
+ 
+    border: 1px solid var(--color-border-primary);
+ 
+    border-radius: var(--border-radius-medium);
+ 
+    font-size: 1rem;
+ 
+    color: var(--color-text-primary);
+ 
+    box-sizing: border-box; /* Ensures consistent width */
+ 
+ }
+ 
+  
+ 
+ .dark-mode-toggle-container {
+ 
+    display: flex;
+ 
+    align-items: center;
+ 
+    margin-left: var(--spacing-large);
+ 
+ }
+ 
+  
+ 
+ .dark-mode-label {
+ 
+    margin-right: 10px;
+ 
+    font-size: 0.9rem;
+ 
+    color: var(--color-text-secondary);
+ 
+ }
+ 
+  
+ 
+ .switch {
+ 
+    position: relative;
+ 
+    display: inline-block;
+ 
+    width: var(--toggle-width);
+ 
+    height: var(--toggle-height);
+ 
+ }
+ 
+  
+ 
+ .switch input {
+ 
+    opacity: 0;
+ 
+    width: 0;
+ 
+    height: 0;
+ 
+ }
+ 
+  
+ 
+ .slider {
+ 
+    position: absolute;
+ 
     cursor: pointer;
-    margin-top: 15px; /* Add some space above the button */
-    transition: background-color 0.3s ease;
-    align-self: center; /* Center the button horizontally within the content */
-
-}
-
-.view-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-.book-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+ 
+    top: 0;
+ 
+    left: 0;
+ 
+    right: 0;
+ 
+    bottom: 0;
+ 
+    background-color: #ccc;
+ 
+    transition: .4s;
+ 
+    border-radius: var(--toggle-height);
+ 
+ }
+ 
+  
+ 
+ .slider:before {
+ 
+    position: absolute;
+ 
+    content: "";
+ 
+    height: var(--toggle-knob-size);
+ 
+    width: var(--toggle-knob-size);
+ 
+    left: 4px;
+ 
+    bottom: 4px;
+ 
+    background-color: white;
+ 
+    transition: .4s;
+ 
+    border-radius: 50%;
+ 
+ }
+ 
+  
+ 
+ input:checked + .slider {
+ 
+    background-color: #2196F3;
+ 
+ }
+ 
+  
+ 
+ input:focus + .slider {
+ 
+    box-shadow: 0 0 1px #2196F3;
+ 
+ }
+ 
+  
+ 
+ input:checked + .slider:before {
+ 
+    transform: translateX(calc(var(--toggle-width) - var(--toggle-knob-size) - 4px));
+ 
+ }
+ 
+  
+ 
+ /* Main content area */
+ 
+ main {
+ 
+    flex-grow: 1;
+ 
+    display: flex;
+ 
+    flex-direction: column; /* Stack header and grid vertically */
+ 
+    align-items: center; /* Center items horizontally */
+ 
+    padding-top: 0; /* Remove top padding from the main content */
+ 
+    width: 100%; /* Ensure alignment across the layout */
+ 
+    box-sizing: border-box; /* Includes padding in width calculations */
+ 
+ }
+ 
+  
+ 
+ /* Book grid layout */
+ 
+ .book-grid {
+ 
+    display: grid;
+ 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ 
+    gap: 20px;
+ 
+    padding: 20px;
+ 
+    background-color: var(--color-bg-primary);
+ 
+    box-shadow: var(--box-shadow-medium);
+ 
+    border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
+ 
+    width: 100%; /* Ensure it spans the same width as the header */
+ 
+    max-width: 1200px; /* Matches the header */
+ 
+    margin-top: 0; /* Ensure no extra top margin */
+ 
+    box-sizing: border-box; /* Consistent width calculations */
+ 
+ }
+ 
+  
+ 
+ /* Book card styles */
+ 
+ .book-card {
+ 
+    position: relative; /* Make sure the book card is positioned */
+ 
+    display: flex;
+ 
+    flex-direction: column;
+ 
+    background-color: var(--color-bg-secondary);
+ 
+    border: 1px solid var(--color-border-primary);
+ 
+    border-radius: var(--border-radius-medium);
+ 
+    overflow: hidden;
+ 
+    box-shadow: var(--box-shadow-light);
+ 
+    padding: var(--spacing-medium);
+ 
+    text-align: center;
+ 
+    transition: var(--transition-default);
+ 
+ }
+ 
+  
+ 
+ .book-card img {
+ 
+    max-width: 100%;
+ 
+    height: auto;
+ 
+    width: 75%;
+ 
+    display: block;
+ 
+    margin: 0 auto var(--spacing-medium);
+ 
+    object-fit: contain;
+ 
+    border-bottom: 1px solid var(--color-border-primary);
+ 
+ }
+ 
+  
+ 
+ .book-card-content {
+ 
+    display: flex;
+ 
+    flex-direction: column;
+ 
+    justify-content: space-between;
+ 
+    flex-grow: 1;
+ 
+    padding-top: var(--spacing-medium);
+ 
+ }
+ 
+  
+ 
+ .book-card .book-title {
+ 
+    font-size: 1.125rem;
+ 
+    font-weight: bold;
+ 
+    margin-top: var(--spacing-medium);
+ 
+    margin-bottom: var(--spacing-small);
+ 
+    color: var(--color-text-primary);
+ 
+ }
+ 
+  
+ 
+ .book-card .book-author {
+ 
+    font-size: 1rem;
+ 
+    color: var(--color-text-accent);
+ 
+    margin-top: var(--spacing-small);
+ 
+    margin-bottom: var(--spacing-small);
+ 
+ }
+ 
+  
+ 
+ .book-card .book-info {
+ 
+    font-size: 0.875rem;
+ 
+    color: var(--color-text-secondary);
+ 
+    margin-top: var(--spacing-small);
+ 
+    margin-bottom: var(--spacing-small);
+ 
+ }
+ 
+  
+ 
+ .book-card .book-date {
+ 
+    font-size: 0.75rem;
+ 
+    color: var(--color-text-date);
+ 
+    margin-top: var(--spacing-small);
+ 
+    margin-bottom: var(--spacing-medium);
+ 
+ }
+ 
+  
+ 
+ .view-button {
+ 
+    background-color: var(--button-primary-bg);
+ 
+    color: var(--button-primary-text);
+ 
+    border: none;
+ 
+    border-radius: var(--border-radius-small);
+ 
+    padding: 8px var(--spacing-large);
+ 
+    font-size: var(--font-size-base);
+ 
+    cursor: pointer;
+ 
+    margin-top: auto;
+ 
+    align-self: center;
+ 
+ }
+ 
+  
+ 
+ /* Footer styles */
+ 
+ footer {
+ 
+    background-color: var(--color-bg-secondary);
+ 
+    color: var(--color-text-secondary);
+ 
+    text-align: center;
+ 
+    padding: 10px;
+ 
+    border-top: 1px solid var(--color-border-primary);
+ 
+    width: 100%;
+ 
+ }
+ 
+  
+ 
+ /* Hover effect on book card details */
+ 
+ .book-card:hover .book-title,
+ 
+ .book-card:hover .book-author,
+ 
+ .book-card:hover .book-info,
+ 
+ .book-card:hover .book-date {
+ 
+    color: #007bff; /* Changed hover color to blue */
+ 
+ }
+ 
+  
+ 
+ /* Animation (example: subtle fade-in on load) */
+ 
+ .book-grid {
+ 
+    opacity: 0;
+ 
+    animation: fadeIn 0.5s ease-in-out forwards;
+ 
+ }
+ 
+  
+ 
+ @keyframes fadeIn {
+ 
+    from { opacity: 0; }
+ 
+    to { opacity: 1; }
+ 
+ }
+ 
+  
+ 
+ /* Responsive design (example: adjust grid gap for smaller screens) */
+ 
+ @media (max-width: 600px) {
+ 
+    .book-grid {
+ 
+        gap: 15px;
+ 
+        padding: 15px;
+ 
+    }
+ 
+    .book-card {
+ 
+        padding: 10px;
+ 
+    }
+ 
+    .book-card .book-title {
+ 
+        font-size: 1rem;
+ 
+    }
+ 
+    .book-card .book-author {
+ 
+        font-size: 0.9rem;
+ 
+    }
+ 
+    .view-button {
+ 
+        font-size: 0.9rem;
+ 
+        padding: 6px 12px;
+ 
+    }
+ 
+ }
+ 
+  
+ 
+ /* Badges */
+ 
+ .out-of-stock-badge,
+ 
+ .im-new-badge {
+ 
+   position: absolute; /* Position the badge */
+ 
+   top: 10px; /* Adjust as needed */
+ 
+   left: 10px; /* Adjust as needed */
+ 
+   color: white;
+ 
+   font-weight: bold;
+ 
+   padding: 5px 10px;
+ 
+   border-radius: var(--border-radius-small);
+ 
+   z-index: 10; /* Ensure the badge is on top of other content */
+ 
+ }
+ 
+  
+ 
+ .out-of-stock-badge {
+ 
+   background-color: blue;
+ 
+ }
+ 
+  
+ 
+ .im-new-badge {
+ 
+   background-color: red;
+ 
+ }
